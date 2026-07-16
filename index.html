@@ -185,7 +185,7 @@
 
                 try {
                     // Делаем запрос к нашему новому маршруту Python API
-                    const response = await fetch(`http://localhost:8000/api/search?q=${encodeURIComponent(searchTerm)}`);
+                    const response = await fetch('https://global-media-tracker-1.onrender.com/api/search?q=${encodeURIComponent(searchTerm)}');
                     const liveData = await response.json();
                     
                     searchCount.innerText = `Найдено в Live-режиме: ${liveData.length}`;
