@@ -10,7 +10,6 @@
     <style>
         body { font-family: 'Inter', sans-serif; background: radial-gradient(circle at top center, #1a2139 0%, #0d1117 100%); background-attachment: fixed; color: #c9d1d9; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes pulseGlow { 0% { text-shadow: 0 0 10px #58a6ff; } 50% { text-shadow: 0 0 30px #58a6ff, 0 0 10px #4facfe; } 100% { text-shadow: 0 0 10px #58a6ff; } }
         .fade-in { opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
         .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.3s; } .delay-3 { animation-delay: 0.5s; }
         .container { max-width: 1200px; width: 90%; margin: 40px auto; }
@@ -32,7 +31,6 @@
         .search-input { width: 100%; padding: 20px 25px; font-size: 1.1rem; font-family: 'Inter', sans-serif; background: rgba(13, 17, 23, 0.8); border: 1px solid rgba(88, 166, 255, 0.2); border-radius: 12px; color: #e6edf3; outline: none; transition: all 0.3s ease; box-sizing: border-box; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
         .search-input::placeholder { color: #8b949e; }
         .search-input:focus { border-color: #58a6ff; box-shadow: 0 0 20px rgba(88, 166, 255, 0.3); background: rgba(22, 27, 34, 0.95); }
-        .search-hint { position: absolute; right: 20px; top: 22px; color: #58a6ff; font-weight: 600; font-size: 0.9rem; pointer-events: none; opacity: 0.7; }
         .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); gap: 25px; }
         .card { padding: 25px; display: flex; flex-direction: column; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 1; }
         .card:hover { transform: translateY(-8px) scale(1.02); border-color: rgba(88, 166, 255, 0.4); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(88, 166, 255, 0.15); z-index: 2; }
@@ -44,8 +42,6 @@
         .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); }
         .read-more { color: #58a6ff; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: color 0.2s; }
         .read-more:hover { color: #4facfe; text-decoration: underline; }
-        
-        .loading-text { font-size: 1.5rem; font-weight: 800; color: #58a6ff; text-align: center; grid-column: 1 / -1; padding: 50px 0; animation: pulseGlow 1.5s infinite; }
     </style>
 </head>
 <body>
@@ -53,7 +49,7 @@
     <div class="container">
         <header class="fade-in delay-1">
             <h1>Global Media Tracker</h1>
-            <p class="subtitle">Full-Stack аналитический дашборд. Мониторинг предвзятости СМИ в реальном времени с использованием алгоритмов NLP и нейросети Llama 3.</p>
+            <p class="subtitle">Full-Stack аналитический дашборд. Мониторинг предвзятости СМИ с использованием алгоритмов NLP и нейросети Llama 3.</p>
         </header>
 
         <div class="about-grid fade-in delay-2">
@@ -61,26 +57,26 @@
                 <h3>💡 Архитектура проекта</h3>
                 <p>Этот проект демонстрирует полный цикл работы с данными (Data Engineering):</p>
                 <ul style="color: #8b949e; line-height: 1.6;">
-                    <li><strong style="color: #c9d1d9;">Backend (Python/FastAPI):</strong> REST API с интеграцией Google News RSS.</li>
-                    <li><strong style="color: #c9d1d9;">Data Science (VADER & Llama 3):</strong> Гибридный анализ тональности в реальном времени (Real-Time AI Agents).</li>
-                    <li><strong style="color: #c9d1d9;">База данных:</strong> Локальное хранилище на SQLite с защитой от дубликатов.</li>
+                    <li><strong style="color: #c9d1d9;">Data Lake:</strong> Автоматизированный сбор и агрегация мировых RSS-лент.</li>
+                    <li><strong style="color: #c9d1d9;">Backend (Python/FastAPI):</strong> REST API для отдачи обработанных данных на клиент.</li>
+                    <li><strong style="color: #c9d1d9;">Data Science (VADER & Llama 3):</strong> Гибридный сентимент-анализ и выявление скрытых манипуляций.</li>
                 </ul>
             </div>
             <div class="info-panel glass-panel">
                 <h3>👨‍💻 Разработчик</h3>
                 <p><strong>Pdeyx</strong><br><span style="color:#8b949e">Software Engineering / Data Science</span></p>
                 <p style="color: #8b949e; font-size: 0.95rem;">Создаю проекты на стыке современных технологий и социальных процессов. Увлекаюсь ИИ, анализом данных и веб-разработкой.</p>
-                <a href="#" class="read-more">GitHub Профиль →</a>
+                <a href="https://github.com/Pdeyx" target="_blank" class="read-more">GitHub Профиль →</a>
             </div>
         </div>
 
         <div class="metrics-grid fade-in delay-3">
             <div class="metric-card glass-panel">
-                <div class="metric-label">Новостей в архиве</div>
+                <div class="metric-label">Новостей проанализировано</div>
                 <div class="metric-value" id="val-total">0</div>
             </div>
             <div class="metric-card glass-panel">
-                <div class="metric-label">Глобальный индекс</div>
+                <div class="metric-label">Глобальный индекс (VADER)</div>
                 <div class="metric-value" id="val-avg">0.000</div>
             </div>
             <div class="metric-card glass-panel">
@@ -94,17 +90,17 @@
         </div>
 
         <div class="fade-in delay-3" style="border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: flex-end;">
-            <h3 style="color:#58a6ff; font-size: 1.5rem; margin: 0;">📡 Live Feed & AI Search</h3>
-            <span id="search-count" style="color: #8b949e; font-size: 0.9rem;">Отображается архив</span>
+            <h3 style="color:#58a6ff; font-size: 1.5rem; margin: 0;">📡 AI Intelligence Feed</h3>
+            <span id="search-count" style="color: #8b949e; font-size: 0.9rem;"></span>
         </div>
         
         <div class="search-container fade-in delay-3">
-            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Введите запрос (например: Apple, Trump, Mars) и нажмите Enter...">
-            <span class="search-hint">Press Enter ↵</span>
+            <input type="text" id="searchInput" class="search-input" placeholder="🔍 Мгновенный поиск по темам, СМИ или анализу ИИ...">
         </div>
 
         <div class="news-grid" id="news-container">
-            </div>
+            <!-- Сюда вставляются карточки -->
+        </div>
     </div>
 
     <script>
@@ -126,7 +122,10 @@
 
         function renderCards(dataToRender) {
             const container = document.getElementById('news-container');
+            const searchCount = document.getElementById('search-count');
             container.innerHTML = ''; 
+            
+            searchCount.innerText = `Показано: ${dataToRender.length}`;
 
             if (dataToRender.length === 0) {
                 container.innerHTML = '<p style="color:#8b949e; font-size: 1.1rem; grid-column: 1 / -1; text-align: center; padding: 40px 0;">Ничего не найдено.</p>';
@@ -137,8 +136,7 @@
                 let scoreColor = '#8b949e'; let scoreIcon = '⚪';
                 if (news.compound > 0.05) { scoreColor = '#3fb950'; scoreIcon = '🟢'; }
                 else if (news.compound < -0.05) { scoreColor = '#f85149'; scoreIcon = '🔴'; }
-
-                const animationDelay = (index * 0.05);
+                const animationDelay = (index * 0.03); // Быстрая анимация
 
                 const cardHTML = `
                     <div class="card glass-panel fade-in" style="animation-delay: ${animationDelay}s">
@@ -149,7 +147,7 @@
                         <h2 class="card-title">${news.title}</h2>
                         
                         <div class="ai-analysis">
-                            <span class="ai-label">🤖 AI Insight</span>
+                            <span class="ai-label">🤖 AI Insight (Llama 3)</span>
                             ${news.ai_explanation}
                         </div>
                         
@@ -165,42 +163,21 @@
             });
         }
 
-        // --- МАГИЯ ЖИВОГО ПОИСКА (Отслеживаем нажатие Enter) ---
-        document.getElementById('searchInput').addEventListener('keypress', async function(e) {
-            if (e.key === 'Enter') {
-                const searchTerm = e.target.value.trim();
-                const container = document.getElementById('news-container');
-                const searchCount = document.getElementById('search-count');
-                
-                // Если поле пустое, возвращаем архивные новости
-                if (!searchTerm) {
-                    searchCount.innerText = `Архив: ${allNewsData.length}`;
-                    renderCards(allNewsData);
-                    return;
-                }
-
-                // Показываем красивую анимацию загрузки
-                container.innerHTML = '<div class="loading-text">Ищем в интернете и анализируем... 🧠</div>';
-                searchCount.innerText = "Live AI Analysis...";
-
-                try {
-                    // Делаем запрос к нашему новому маршруту Python API
-                    const response = await fetch('https://global-media-tracker-1.onrender.com/api/search?q=${encodeURIComponent(searchTerm)}');
-                    const liveData = await response.json();
-                    
-                    searchCount.innerText = `Найдено в Live-режиме: ${liveData.length}`;
-                    renderCards(liveData);
-                } catch (error) {
-                    console.error("Ошибка:", error);
-                    container.innerHTML = '<p style="color:#f85149; text-align:center; grid-column: 1/-1;">Ошибка соединения с сервером. Убедитесь, что uvicorn запущен.</p>';
-                }
-            }
+        // МГНОВЕННЫЙ ПОИСК БЕЗ ПЕРЕЗАГРУЗОК
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredNews = allNewsData.filter(news => {
+                return news.title.toLowerCase().includes(searchTerm) || 
+                       news.ai_explanation.toLowerCase().includes(searchTerm) ||
+                       news.source.toLowerCase().includes(searchTerm);
+            });
+            renderCards(filteredNews);
         });
 
-        // Загрузка архива при старте страницы
         async function fetchInitialData() {
             try {
-                const response = await fetch('http://localhost:8000/api/news');
+                // Обращаемся к серверу Render за всей базой данных
+                const response = await fetch('https://global-media-tracker-1.onrender.com/api/news');
                 allNewsData = await response.json(); 
                 
                 if (allNewsData.length > 0) {
@@ -240,8 +217,9 @@
                         options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#8b949e' } }, x: { grid: { display: false }, ticks: { color: '#8b949e' } } }, animation: { duration: 2000, easing: 'easeOutQuart' } }
                     });
 
-                    document.getElementById('search-count').innerText = `Архив: ${allNewsData.length}`;
                     renderCards(allNewsData);
+                } else {
+                    document.getElementById('news-container').innerHTML = '<p style="text-align:center; color:#8b949e; grid-column:1/-1;">База данных пока пуста.</p>';
                 }
             } catch (error) {
                 console.error("Ошибка:", error);
