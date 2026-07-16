@@ -1,14 +1,15 @@
-import feedparser
 import sqlite3
-import os
+import feedparser
 from datetime import datetime
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from groq import Groq
+import os
+from dotenv import load_dotenv  # <--- ДОБАВИТЬ ЭТО
 
-# 1. Инициализируем VADER (он все еще нужен нам для цифр и графиков)
+load_dotenv()  # <--- И ДОБАВИТЬ ЭТО. Эта команда заставит Python прочитать файл .env
+
+# Дальше твой код как обычно:
 analyzer = SentimentIntensityAnalyzer()
-
-# 2. Инициализируем умный ИИ (ВСТАВЬ СВОЙ КЛЮЧ СЮДА)
 groq_client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 # Наш обновленный и расширенный список источников

@@ -7,6 +7,9 @@ import os
 from datetime import datetime
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from groq import Groq
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI(title="Global Media Tracker API")
 
